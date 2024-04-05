@@ -19,7 +19,7 @@ blogRouter.get('/:id', (request, response) => {
     .catch(error => next(error));
 });
 
-blogRouter.get('/:id', (request, response, next) => {
+blogRouter.delete('/:id', (request, response, next) => {
   Blog.findByIdAndDelete(request.params.id)
     .then(() => {
       response.status(204).end();
