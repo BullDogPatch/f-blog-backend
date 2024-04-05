@@ -3,12 +3,11 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
 const url = process.env.MONGODB_URL;
-console.log('connecting to MongoDB:', url);
 
 mongoose
   .connect(url)
   .then(() => {
-    console.log('Connected to MongoDB');
+    console.log('connecting to MongoDB:', url);
   })
   .catch(error => {
     console.error('Error connecting to MongoDB:', error.message);
