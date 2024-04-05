@@ -19,6 +19,24 @@ blogRouter.get('/:id', (request, response) => {
     .catch(error => next(error));
 });
 
+blogRouter.post('/', (request, response, next) => {
+  const { title, author, url, likes } = request.body;
+
+  const blog = new Blog({
+    title,
+    author,
+    url,
+    likes,
+  });
+
+  blog
+    .save()
+    .then(savedBlog => {
+      response.json(savedBlog);
+    })
+    .catch(error => next(error));
+});
+
 blogRouter.delete('/:id', (request, response, next) => {
   Blog.findByIdAndDelete(request.params.id)
     .then(() => {
