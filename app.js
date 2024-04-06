@@ -15,7 +15,7 @@ mongoose.connect(config.MONGODB_URL).then(() => {
   logger.info('connected to MongoDB');
 });
 
-// app.use(cors());
+app.use(cors());
 app.use(express.static('dist'));
 app.use(express.json());
 // app.use(middleware.requestLogger);
