@@ -263,5 +263,9 @@ describe('most blogs with lodash', () => {
     },
   ];
 
-  test('returns an object with two properties of the author and how many blogs but with lodash', () => {});
+  test('returns an object with two properties of the author and how many blogs but with lodash', () => {
+    const result = listHelper.mostBlogsWithLodash(blogs);
+    const expected = { author: 'Robert C. Martin', blogs: 3 };
+    assert.deepStrictEqual(result, expected);
+  });
 });
